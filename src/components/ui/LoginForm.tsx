@@ -173,11 +173,10 @@ export const LoginForm = ({ setLoginForm }: LoginFormProps) => {
           </form>
         </CardContent>
         <CardFooter className="flex flex-col gap-4">
+          <Separator />
           <span className="cursor-pointer hover:underline">
             <ForgotForm />
           </span>
-          <Separator />
-          <Button variant="outline">Login with google</Button>
         </CardFooter>
       </Card>
     </div>

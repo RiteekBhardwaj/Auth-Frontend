@@ -273,13 +273,6 @@ export const SignUpForm = ({ setLoginForm }: LoginFormProps) => {
             </FieldGroup>
           </form>
         </CardContent>
-        <CardFooter className="flex flex-col gap-4">
-          <Separator />
-          <span>or</span>
-          <Button variant="outline">
-            <IconBrandGoogle /> Signup with Google
-          </Button>
-        </CardFooter>
       </Card>
     </div>
   );
