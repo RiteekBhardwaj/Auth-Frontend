@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔐 Authentication Service (Next.js + Spring Boot)
 
-## Getting Started
+A **production-ready JWT authentication system** built with **Next.js (frontend)** and **Spring Boot (backend)**, focusing on **security, scalability, and real-world best practices**.
 
-First, run the development server:
+## 🚀 Features Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Authentication & Sessions
+- JWT-based access and refresh token authentication
+- Secure HTTP-only cookie handling
+- Refresh token rotation with reuse detection
+- Redis-backed session tracking using JTI
+- Automatic access token expiry handling
+- Immediate token revocation on logout or misuse
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Account Security
+- OTP-based email verification during signup
+- Secure password recovery using email OTP
+- Email-based rate limiting to prevent brute-force attacks
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Frontend
+- Next.js
+- Tailwind CSS
+- Secure cookie-based authentication
 
-## Learn More
+### Backend
+- Spring Boot
+- Spring Security
+- JWT (Access & Refresh Tokens)
+- Redis (Session & Token Tracking)
 
-To learn more about Next.js, take a look at the following resources:
+### Infrastructure
+- RESTful APIs
+- Redis TTL-based expiration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧠 How It Works (High Level)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. User logs in with credentials  
+2. Backend issues:
+   - Short-lived **access token**
+   - Long-lived **refresh token** (stored securely)
+3. Refresh token JTI is stored in Redis with expiry
+4. On token refresh:
+   - Old refresh token is invalidated
+   - New token pair is issued
+5. Any token reuse attempt triggers **immediate revocation**
