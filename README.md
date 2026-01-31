@@ -3,6 +3,7 @@
 A production-ready JWT authentication system built with **Next.js (Frontend)** and **Spring Boot (Backend)**, focused on **security, scalability, and real-world best practices**. The backend of this application is fully deployed on **AWS EC2** to simulate a real production environment.
 
 🔗 **Live Demo:** https://next-auth-frontend.netlify.app/
+
 🔗 **Backend:** https://github.com/RiteekBhardwaj/Auth-Backend
 
 ---
