@@ -1,28 +1,34 @@
-# 🔐 Authentication Service (Next.js + Spring Boot)
+# Authentication Service (Next.js + Spring Boot)
 
-A **production-ready JWT authentication system** built with **Next.js (frontend)** and **Spring Boot (backend)**, focusing on **security, scalability, and real-world best practices**.
+A production-ready JWT authentication system built with **Next.js (Frontend)** and **Spring Boot (Backend)**, focused on **security, scalability, and real-world best practices**. The backend of this application is fully deployed on **AWS EC2** to simulate a real production environment.
 
-## 🚀 Features Overview
+🔗 **Live Demo:** https://next-auth-frontend.netlify.app/
+🔗 **Backend:** https://github.com/RiteekBhardwaj/Auth-Backend
+
+---
+
+## Features Overview
 
 ### Authentication & Sessions
-- JWT-based access and refresh token authentication
-- Secure HTTP-only cookie handling
-- Refresh token rotation with reuse detection
-- Redis-backed session tracking using JTI
+- JWT-based **Access & Refresh Token** authentication
+- Secure **HTTP-Only Cookie** handling
+- **Refresh Token Rotation** with reuse detection
+- **Redis-backed JTI session tracking**
 - Automatic access token expiry handling
 - Immediate token revocation on logout or misuse
 
 ### Account Security
-- OTP-based email verification during signup
-- Secure password recovery using email OTP
-- Email-based rate limiting to prevent brute-force attacks
+- **OTP-based Email Verification** during signup
+- **Secure Password Recovery** via Email OTP
+- **Email Rate Limiting** to prevent brute-force and spam attacks
 
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Frontend
 - Next.js
+- React
 - Tailwind CSS
-- Secure cookie-based authentication
+- Secure Cookie-based Authentication
 
 ### Backend
 - Spring Boot
@@ -30,18 +36,18 @@ A **production-ready JWT authentication system** built with **Next.js (frontend)
 - JWT (Access & Refresh Tokens)
 - Redis (Session & Token Tracking)
 
-### Infrastructure
-- RESTful APIs
-- Redis TTL-based expiration
 
-## 🧠 How It Works (High Level)
+## Deployment
+The project is deployed on **AWS EC2**:
+- Secure API communication setup
 
+## How It Works (High Level)
 1. User logs in with credentials  
 2. Backend issues:
-   - Short-lived **access token**
-   - Long-lived **refresh token** (stored securely)
-3. Refresh token JTI is stored in Redis with expiry
+   - Short-lived **Access Token**
+   - Long-lived **Refresh Token** stored securely  
+3. Refresh Token **JTI stored in Redis** with expiry  
 4. On token refresh:
    - Old refresh token is invalidated
    - New token pair is issued
-5. Any token reuse attempt triggers **immediate revocation**
+   - Any token reuse attempt triggers **immediate revocation**
