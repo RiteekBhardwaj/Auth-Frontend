@@ -62,7 +62,7 @@ export const LoginForm = ({ setLoginForm }: LoginFormProps) => {
       {
         position: "top-center",
         loading: "Loading...",
-        success: (data) => `Welcome, ${data}!`,
+        success: (data) => `Welcome, ${data.username}!`,
         error: (err) => err.message ?? "Signup failed",
       },
     );

@@ -56,7 +56,7 @@ export const ForgotForm = () => {
       {
         position: "top-center",
         loading: "Sending OTP...",
-        success: (data) => data.message,
+        success: (data) => data.message + ". CHECK YOUR SPAM FOLDER",
         error: (err) => err.message ?? "Failed to send OTP",
       },
     );
@@ -84,7 +84,7 @@ export const ForgotForm = () => {
         return;
       }
       await forgotPassword(data);
-      
+
       setOpen(false);
       reset();
       setOtpFieldVisible(false);

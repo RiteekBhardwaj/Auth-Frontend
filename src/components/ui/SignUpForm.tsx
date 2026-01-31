@@ -67,7 +67,7 @@ export const SignUpForm = ({ setLoginForm }: LoginFormProps) => {
       {
         position: "top-center",
         loading: "Sending OTP...",
-        success: (data) => data.message,
+        success: (data) => data.message + ". CHECK YOUR SPAM FOLDER",
         error: (err) => err.message ?? "Failed to send OTP",
       },
     );
@@ -82,7 +82,7 @@ export const SignUpForm = ({ setLoginForm }: LoginFormProps) => {
       {
         position: "top-center",
         loading: "Creating account...",
-        success: (res) => `Welcome, ${res}!`,
+        success: (res) => `Welcome, ${res.username}!`,
         error: (err) => err.message ?? "Signup failed",
       },
     );

@@ -39,7 +39,7 @@ export async function create(data: {
     body: JSON.stringify(data),
   });
 
-  return handleResponse<{ message: string }>(res);
+  return handleResponse<{ username: string; message: string }>(res);
 }
 
 export async function login(data: { email: string; password: string }) {
@@ -52,7 +52,7 @@ export async function login(data: { email: string; password: string }) {
     body: JSON.stringify(data),
   });
 
-  return handleResponse<{ message: string }>(res);
+  return handleResponse<{ username: string; message: string }>(res);
 }
 
 export async function logout() {
